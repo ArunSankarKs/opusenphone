@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'simpleopusenclient'
+
+include ':socksviahttp'
+project(':socksviahttp').projectDir = new File('./External/socksviahttp')
+
+include ':signalr'
+project(':signalr').projectDir = new File('./External/signalr/signalr-client-sdk')
+
+include ':java-websocket'
+project(':java-websocket').projectDir = new File('./External/java-websocket')

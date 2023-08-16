@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+version = '1.0.0'
+sourceCompatibility = 1.8
+
+ext {
+    slf4jVersion = '2.0.7'
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+
+    implementation project(":java-websocket")
+    implementation project(":signalr")
+    implementation project(":socksviahttp")
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+}
+
+// need to make sure that we compile the dependencies first
+tasks.getByPath(':signalr:jar').configure {
+    dependsOn(':java-websocket:jar')
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Simple OPUS en client',
+                   'Implementation-Version': version,
+                   'Main-Class': 'dev.dacbiet.opusenclient.Main'
+    }
+
+    from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
+        // exclude 'META-INF', 'META-INF/**'
+    }
+}

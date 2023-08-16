@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "test"
+include ':app'
+
+include ':opusenclient'
+project(':opusenclient').projectDir = new File('../Client')
+
+include ':socksviahttp'
+project(':socksviahttp').projectDir = new File('../Client/External/socksviahttp')
+
+include ':signalr'
+project(':signalr').projectDir = new File('../Client/External/signalr/signalr-client-sdk')
+
+include ':java-websocket'
+project(':java-websocket').projectDir = new File('../Client/External/java-websocket')

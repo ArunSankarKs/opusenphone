@@ -1,0 +1,43 @@
+<configuration
+  xmlns="https://tony19.github.io/logback-android/xml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://tony19.github.io/logback-android/xml https://cdn.jsdelivr.net/gh/tony19/logback-android/logback.xsd"
+>
+  <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+    <tagEncoder>
+      <pattern>%logger{12}</pattern>
+    </tagEncoder>
+    <encoder>
+      <pattern>[%-20thread] %msg</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="file" class="ch.qos.logback.core.FileAppender">
+    <file>/sdcard/Android/data/dev.dacbiet.test/debug.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/sdcard/Android/data/dev.dacbiet.test/debug.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>/sdcard/Android/data/dev.dacbiet.test/debug-%i.log</fileNamePattern>
+      <minIndex>1</minIndex>
+      <maxIndex>10</maxIndex>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>15MB</maxFileSize>
+    </triggeringPolicy>
+
+    <encoder>
+      <pattern>%relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root name="opus logging" level="DEBUG">
+    <appender-ref ref="logcat" />
+    <appender-ref ref="file" />
+  </root>
+</configuration>

@@ -1,0 +1,20 @@
+Thank you for the download of Socks via HTTP.
+You can always download the last version at http://cqs.dyndns.org/socks
+
+Socks via HTTP is a program converting SOCKS requests into HTTP requests and tunnelling
+them through HTTP proxies if needed. The SOCKS protocol allows programs to traverse firewalls on any port number
+and is used by many popular programs, like Napster, MSN Messenger, CRT(telnet client)
+and many others. Many companies restrict firewall traversals only to HTTP requests,
+disabling SOCKS proxy. Socks via HTTP provides a miniature SOCKS server for the SOCKS client,
+performing its connection through an HTTP proxy to a remote server, which establishes the real connection.
+
+
+Please read carefully the INSTALL and DOCUMENTATION files.
+You can always get the last version of the program, and some documentation at http://cqs.dyndns.org
+
+Please send your feedback to socksviahttp@cqs.dyndns.org
+
+Thank you
+
+Florent CUETO & Sebastien LEBRETON
+socksviahttp@cqs.dyndns.org

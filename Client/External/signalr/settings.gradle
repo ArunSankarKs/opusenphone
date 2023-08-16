@@ -1,0 +1,7 @@
+rootProject.name = 'signalr'
+
+// include ':signalr-client-sdk', ':signalr-client-sdk-android', ':signalr-client-tests', ':signalr-client-test-integration-base', ':signalr-client-test-integration-java', ':signalr-client-test-integration-android'
+include ':signalr-client-sdk'
+
+include ':java-websocket'
+project(':java-websocket').projectDir = new File('../java-websocket')

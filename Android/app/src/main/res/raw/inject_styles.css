@@ -1,0 +1,8 @@
+
+.aots-wrapper .list-transport-authorities .list-aots-wrapper {
+    padding: 0;
+}
+
+.aots-wrapper .list-transport-authorities li {
+    width: 50% !important;
+}

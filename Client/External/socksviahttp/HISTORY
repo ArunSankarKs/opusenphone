@@ -1,0 +1,104 @@
+History
+
+v1.2 (14/06/2002)
+- Removed a major bug that could make Socks via HTTP Client to hang
+- Removed some bugs in the Socks4 & Socks5 handlers
+- New communication method between Client & Server (without serializing objects -> use less traffic)
+- CRC check on the packets
+- New HTTP traffic minimize method (more accurate)
+- Aliases can be defined on the servlet names (http://www.yourserver.com/servlet/socksviahttp.server.admin.ServletAdmin -> http://www.yourserver.com/svhadmin)
+- JHttpServer can now preload servlets on startup
+- Major security fix on the static files serving servlet
+- Removed a bug with the old-school authentication method on the administration console
+- The version check on Socks via HTTP Client startup has been removed (it was too slow)
+- New logging system (with log queues)
+- More logs on the server
+- Possibility to fill a list of servers in the client properties file (the client will use the first available one on runtime)
+- Parameters chosen by the client : on the fly compression, on the fly encryption
+- Code prepared to support the Socks BIND command (soon)
+- Code prepared to support the proxies CONNECT method
+
+v1.0.1 (06/05/2002)
+Corrected some minor bugs on the client
+Add an old-school authentication method to allow access to the administration console when using JRun 2.3 as servlet engine
+Better logging on the client part
+Added an application launcher for Windows (trayicon)
+
+v1.0 (05/05/2002)
+A LOT OF CHANGES
+Code cleaned (more "object")
+JDK 1.4 full compatibility (proxy support for example)
+New logging system (console & logfile)
+A bug has been removed in the Socks4a handler
+Protocol Socks 5 now supported
+No more GUI (X11 is no more needed on Unix)
+Added some options to use less http traffic (for people having a limited traffic)
+The client now checks the server version compatibility on startup
+Direct tunneling supported (you can create tunnel between a local port and a remote computer without using socks). Useful for VNC (No more SocksCap!!)
+A spy mode is now available to track the data transferred (on the client & on the server)
+And many other little improvements...
+
+v0.40 (06/11/2001)
+Protocol Socks 4a now supported (add DNS resolution to Socks 4).
+*ICQ* is working again with this version.
+The GUI now gives more informations on errors.
+Corrected some minor bugs.
+
+v0.30 (03/11/2001)
+The source code is now commented in english.
+Socks via HTTP is provided as a "standalone" application (you don't need a servlet engine anymore).
+You can now specify a maximum time for a connection per user.
+Corrected some minor bugs.
+
+v0.20 (18/02/2001)
+The source code is now commented.
+Socks via HTTP is now open source.
+
+v0.19 (28/01/2001)
+This version corrects many bugs of version 0.18.
+Packets between client and server are now zipped on the fly (average speed * 2).
+Server connection timeout is now configurable on the client.
+
+v0.18 (23/01/2001)
+Users are now authenticated.
+Configuration of user rights are made in the initsrv.properties file.
+At connection creation, the login and password are checked, and an ip check is performed.
+The server logs are now redirected in the socks.log file (instead of stdout.log).
+
+v0.16 (22/01/2001)
+The ServletAdmin is now secured with a password.
+The administrator can now kick users/connections.
+Server unused connections now have a timeout and are automatically properly terminated by the server.
+
+v0.15 (21/01/2001)
+The ServletAdmin gives now more informations (connection speed).
+Rewrote the Connection object and the Thread of communication (I now use Buffered Streams) -> speed improvement (speed * 23 on heavy transfer).
+
+v0.14 (17/01/2001)
+Windows version improved.
+The ServletAdmin gives now more informations.
+New proxy authentication method.
+The connection to the ServletSocks is now secured with a password.
+The Socks Server now produce a log file.
+
+v0.13 (16/01/2001)
+Windows version released.
+A ServletAdmin has been added (Simple HTML reporting console).
+Improved the GUI (one more time).
+Some new options.
+New proxy authentication method.
+
+v0.12 (15/01/2001)
+Improved the GUI.
+Some new options.
+Initialization parameters are now read from a property file.
+Proxies with authentification seems to fail. Who can test it ?
+
+v0.11 (14/01/2001)
+Added a GUI.
+Now supports proxies with authentication.
+
+v0.1 (12/01/2001)
+First release.
+Partially supports Socks v4 protocol (CONNECT, but not BIND).
+Successfully tested with mIRC, CuteFTP, FlashFXP, CRT, Napster.
